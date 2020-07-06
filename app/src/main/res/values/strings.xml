@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MAD Level 4 - Example</string>
+    <string name="action_settings">Settings</string>
+    <string name="list_reminders">Reminders</string>
+    <string name="reminders_subheader">See below for all your reminders</string>
+    <string name="add_your_reminder">Add your reminder</string>
+    <string name="til_reminder_help">Fill in your reminder here</string>
+    <string name="til_reminder_label">Reminder name</string>
+    <string name="not_valid_reminder">Please add a valid reminder!</string>
+    <string name="add_reminder_btn">Add reminder</string>
+</resources>
