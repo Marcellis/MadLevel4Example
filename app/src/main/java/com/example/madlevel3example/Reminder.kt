@@ -1,4 +1,4 @@
-package com.example.madlevel3example
+package com.example.madlevel2example
 
 data class Reminder(
     var reminderText: String

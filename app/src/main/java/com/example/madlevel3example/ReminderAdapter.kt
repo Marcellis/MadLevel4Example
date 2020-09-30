@@ -1,17 +1,32 @@
-package com.example.madlevel3example
+package com.example.madlevel2example
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+//import com.example.madlevel2example.databinding.ItemReminderBinding
+import com.example.madlevel3example.R
 import kotlinx.android.synthetic.main.item_reminder.view.*
 
-class ReminderAdapter(private val reminders: List<Reminder>) : RecyclerView.Adapter<ReminderAdapter.ViewHolder>(){
+class ReminderAdapter(private val reminders: List<Reminder>):
+    RecyclerView.Adapter<ReminderAdapter.ViewHolder>()
+{
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+//        val binding = ItemReminderBinding.bind(itemView)
+
+        fun databind(reminder: Reminder) {
+//            binding.tvReminder.text = reminder.reminderText
+            itemView.tvReminder.text = reminder.reminderText
+        }
+    }
+
+
 
     /**
      * Creates and returns a ViewHolder object, inflating a standard layout called simple_list_item_1.
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReminderAdapter.ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_reminder, parent, false)
         )
@@ -30,14 +45,4 @@ class ReminderAdapter(private val reminders: List<Reminder>) : RecyclerView.Adap
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.databind(reminders[position])
     }
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-       // val binding = ItemReminderBinding.bind(itemView)
-
-        fun databind(reminder: Reminder) {
-            itemView.tvReminder.text = reminder.reminderText
-        }
-    }
-
 }

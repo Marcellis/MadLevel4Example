@@ -13,12 +13,15 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.madlevel2example.Reminder
+import com.example.madlevel2example.ReminderAdapter
 import kotlinx.android.synthetic.main.fragment_reminders.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class RemindersFragment : Fragment() {
+
     private val reminders = arrayListOf<Reminder>()
     private val reminderAdapter = ReminderAdapter(reminders)
 
@@ -32,18 +35,23 @@ class RemindersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initViews()
 
+        observeAddReminderResult()
+
     }
+
     private fun initViews() {
         // Initialize the recycler view with a linear layout manager, adapter
         rvReminders.layoutManager =
-            LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+                LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvReminders.adapter = reminderAdapter
         rvReminders.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
-        observeAddReminderResult()
+
         createItemTouchHelper().attachToRecyclerView(rvReminders)
     }
+
     private fun observeAddReminderResult() {
         setFragmentResultListener(REQ_REMINDER_KEY) { key, bundle ->
             bundle.getString(BUNDLE_REMINDER_KEY)?.let {
@@ -55,6 +63,7 @@ class RemindersFragment : Fragment() {
 
         }
     }
+
     /**
      * Create a touch helper to recognize when a user swipes an item from a recycler view.
      * An ItemTouchHelper enables touch behavior (like swipe and move) on each ViewHolder,
@@ -84,5 +93,4 @@ class RemindersFragment : Fragment() {
         }
         return ItemTouchHelper(callback)
     }
-
 }

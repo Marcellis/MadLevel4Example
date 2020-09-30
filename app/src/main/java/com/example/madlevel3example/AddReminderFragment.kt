@@ -12,13 +12,12 @@ import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_add_reminder.*
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
-
 const val REQ_REMINDER_KEY = "req_reminder"
 const val BUNDLE_REMINDER_KEY = "bundle_reminder"
 
+/**
+ * A simple [Fragment] subclass as the second destination in the navigation.
+ */
 class AddReminderFragment : Fragment() {
 
     override fun onCreateView(
@@ -31,10 +30,12 @@ class AddReminderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         btnAddReminder.setOnClickListener {
             onAddReminder()
         }
     }
+
     private fun onAddReminder() {
         val reminderText = etReminderName.text.toString()
 
@@ -53,5 +54,4 @@ class AddReminderFragment : Fragment() {
             ).show()
         }
     }
-
 }
