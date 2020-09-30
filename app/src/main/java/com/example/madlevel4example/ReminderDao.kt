@@ -1,10 +1,10 @@
-package com.example.madlevel3example
+package com.example.madlevel4example
 
 import androidx.room.*
+import com.example.madlevel2example.Reminder
 
 @Dao
 interface ReminderDao {
-
 
     @Query("SELECT * FROM reminderTable")
     suspend fun getAllReminders(): List<Reminder>

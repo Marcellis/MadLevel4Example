@@ -1,42 +1,44 @@
-package com.example.madlevel3example
+package com.example.madlevel4example
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 class MainActivity : AppCompatActivity() {
+
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(findViewById(R.id.toolbar))
 
         navController = findNavController(R.id.nav_host_fragment)
 
-
         fab.setOnClickListener {
-            navController.navigate(R.id.action_RemindersFragment_to_AddReminderFragment)
+            navController.navigate(
+                R.id.action_remindersFragment_to_addReminderFragment
+            )
         }
 
         fabToggler()
+
     }
 
-
     private fun fabToggler() {
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id in arrayOf(R.id.AddReminderFragment)) {
+        navController.addOnDestinationChangedListener { _,       destination, _ ->
+            if (destination.id in arrayOf(R.id.addReminderFragment)) {
                 fab.hide()
             } else {
                 fab.show()
             }
         }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

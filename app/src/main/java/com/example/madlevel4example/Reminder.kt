@@ -1,10 +1,8 @@
-package com.example.madlevel3example
+package com.example.madlevel2example
 
-import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "reminderTable")
 data class Reminder(

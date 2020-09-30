@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/nav_graph"
-app:startDestination="@id/RemindersFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/remindersFragment">
 
-<fragment
-    android:id="@+id/RemindersFragment"
-    android:name="com.example.madlevel3example.RemindersFragment"
-    android:label="Reminders Fragment"
-    tools:layout="@layout/fragment_reminder">
-
-    <action
-        android:id="@+id/action_RemindersFragment_to_AddReminderFragment"
-        app:destination="@id/AddReminderFragment"
-        app:enterAnim="@anim/fragment_open_enter" />
-</fragment>
-
-<fragment
-    android:id="@+id/AddReminderFragment"
-    android:name="com.example.madlevel3example.AddRemindersFragment"
-    android:label="Add Reminder Fragment"
-    tools:layout="@layout/fragment_add_reminder" >
-</fragment>
+    <fragment
+        android:id="@+id/remindersFragment"
+        android:name="com.example.madlevel4example.RemindersFragment"
+        android:label="fragment_reminders"
+        tools:layout="@layout/fragment_reminders" >
+        <action
+            android:id="@+id/action_remindersFragment_to_addReminderFragment"
+            app:destination="@id/addReminderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addReminderFragment"
+        android:name="com.example.madlevel4example.AddReminderFragment"
+        android:label="fragment_add_reminder"
+        tools:layout="@layout/fragment_add_reminder" />
 </navigation>
