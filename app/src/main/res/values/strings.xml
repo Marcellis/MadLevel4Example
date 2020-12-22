@@ -8,4 +8,5 @@
     <string name="add_your_reminder">Add your reminder</string>
     <string name="reminder_name">Reminder name</string>
     <string name="not_valid_reminder">Invalid reminder</string>
+    <string name="fab_button">FAB Button</string>
 </resources>

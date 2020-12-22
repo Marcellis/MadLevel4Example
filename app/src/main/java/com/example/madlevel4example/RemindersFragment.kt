@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.madlevel2example.Reminder
-import com.example.madlevel2example.ReminderAdapter
-import kotlinx.android.synthetic.main.fragment_reminders.*
+import com.example.madlevel4example.databinding.FragmentRemindersBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,17 +22,20 @@ import kotlinx.coroutines.withContext
  */
 class RemindersFragment : Fragment() {
 
+    private var _binding: FragmentRemindersBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var reminderRepository: ReminderRepository
 
     private val reminders = arrayListOf<Reminder>()
     private val reminderAdapter = ReminderAdapter(reminders)
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reminders, container, false)
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentRemindersBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,16 +53,21 @@ class RemindersFragment : Fragment() {
 
     private fun initViews() {
         // Initialize the recycler view with a linear layout manager, adapter
-        rvReminders.layoutManager =
-                LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        rvReminders.adapter = reminderAdapter
-        rvReminders.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
+        binding.rvReminders.layoutManager =
+            LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        binding.rvReminders.adapter = reminderAdapter
+        binding.rvReminders.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
-        createItemTouchHelper().attachToRecyclerView(rvReminders)
+        createItemTouchHelper().attachToRecyclerView(binding.rvReminders)
     }
 
     private fun observeAddReminderResult() {
-        setFragmentResultListener(REQ_REMINDER_KEY) { key, bundle ->
+        setFragmentResultListener(REQ_REMINDER_KEY) { _, bundle ->
             bundle.getString(BUNDLE_REMINDER_KEY)?.let {
                 val reminder = Reminder(it)
 

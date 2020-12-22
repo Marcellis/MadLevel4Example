@@ -1,9 +1,8 @@
 package com.example.madlevel4example
 
 import android.content.Context
-import com.example.madlevel2example.Reminder
 
-public class ReminderRepository(context: Context) {
+class ReminderRepository(context: Context) {
 
     private var reminderDao: ReminderDao
 
@@ -23,7 +22,6 @@ public class ReminderRepository(context: Context) {
     suspend fun deleteReminder(reminder: Reminder) {
         reminderDao.deleteReminder(reminder)
     }
-
 
     suspend fun updateReminder(reminder: Reminder) {
         reminderDao.updateReminder(reminder)
