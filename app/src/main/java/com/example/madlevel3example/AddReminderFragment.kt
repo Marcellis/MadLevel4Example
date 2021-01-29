@@ -39,6 +39,11 @@ class AddReminderFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun onAddReminder() {
         val reminderText = binding.etReminderName.text.toString()
 

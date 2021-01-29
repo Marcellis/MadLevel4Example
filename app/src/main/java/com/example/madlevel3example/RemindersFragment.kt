@@ -41,6 +41,11 @@ class RemindersFragment : Fragment() {
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun initViews() {
         // Initialize the recycler view with a linear layout manager, adapter
         binding.rvReminders.layoutManager =
