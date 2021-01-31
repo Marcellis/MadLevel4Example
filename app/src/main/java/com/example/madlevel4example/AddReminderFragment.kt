@@ -1,4 +1,4 @@
-package com.example.madlevel3example
+package com.example.madlevel4example
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
-import com.example.madlevel3example.databinding.FragmentAddReminderBinding
+import com.example.madlevel4example.databinding.FragmentAddReminderBinding
 
 const val REQ_REMINDER_KEY = "req_reminder"
 const val BUNDLE_REMINDER_KEY = "bundle_reminder"

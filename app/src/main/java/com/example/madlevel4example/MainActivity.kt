@@ -1,4 +1,4 @@
-package com.example.madlevel3example
+package com.example.madlevel4example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.example.madlevel3example.databinding.ActivityMainBinding
+import com.example.madlevel4example.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
